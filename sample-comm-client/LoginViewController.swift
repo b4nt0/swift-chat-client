@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: UIBarButtonItem.Style.done, target: self, action: #selector(loginClick))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

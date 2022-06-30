@@ -34,29 +34,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFh-JH-cLj">
-                                <rect key="frame" x="62" y="220" width="316" height="34"/>
+                                <rect key="frame" x="32" y="220" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pia-YX-UaG">
-                                <rect key="frame" x="62" y="303" width="316" height="34"/>
+                                <rect key="frame" x="32" y="303" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIq-Vc-7Bi">
-                                <rect key="frame" x="62" y="195" width="92" height="25"/>
+                                <rect key="frame" x="32" y="195" width="92" height="25"/>
                                 <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhX-67-XvR">
-                                <rect key="frame" x="62" y="278" width="80" height="25"/>
+                                <rect key="frame" x="32" y="278" width="80" height="25"/>
                                 <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mutli-user chat hackme" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4q-mF-f3M">
-                                <rect key="frame" x="221" y="146" width="187" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mutli-user chat example" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4q-mF-f3M">
+                                <rect key="frame" x="216" y="146" width="192" height="25"/>
                                 <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -71,21 +71,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.2196078431372549" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pia-YX-UaG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="2RR-ao-A6M"/>
+                            <constraint firstItem="pia-YX-UaG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="2RR-ao-A6M"/>
                             <constraint firstItem="K6k-p2-oVD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="4Tc-f2-ayz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pia-YX-UaG" secondAttribute="trailing" constant="50" id="9tn-BZ-GGQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pia-YX-UaG" secondAttribute="trailing" constant="32" id="9tn-BZ-GGQ"/>
                             <constraint firstItem="lFh-JH-cLj" firstAttribute="top" secondItem="HIq-Vc-7Bi" secondAttribute="bottom" id="BUH-JE-Z5b"/>
-                            <constraint firstItem="HIq-Vc-7Bi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="FWT-fZ-Tsg"/>
+                            <constraint firstItem="HIq-Vc-7Bi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="FWT-fZ-Tsg"/>
                             <constraint firstItem="s4q-mF-f3M" firstAttribute="top" secondItem="K6k-p2-oVD" secondAttribute="bottom" constant="2" id="Hlg-kA-lQv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K6k-p2-oVD" secondAttribute="trailing" constant="20" id="PKH-iA-4h3"/>
                             <constraint firstItem="BhX-67-XvR" firstAttribute="top" secondItem="lFh-JH-cLj" secondAttribute="bottom" constant="24" id="RiA-vk-CQr"/>
                             <constraint firstItem="pia-YX-UaG" firstAttribute="top" secondItem="BhX-67-XvR" secondAttribute="bottom" id="as9-21-DHT"/>
-                            <constraint firstItem="lFh-JH-cLj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="gCG-oQ-z1Q"/>
+                            <constraint firstItem="lFh-JH-cLj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="gCG-oQ-z1Q"/>
                             <constraint firstItem="HIq-Vc-7Bi" firstAttribute="top" secondItem="s4q-mF-f3M" secondAttribute="bottom" constant="24" id="kUA-CH-aPs"/>
                             <constraint firstItem="K6k-p2-oVD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nu2-DO-KDs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lFh-JH-cLj" secondAttribute="trailing" constant="50" id="ukN-VW-1IA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lFh-JH-cLj" secondAttribute="trailing" constant="32" id="ukN-VW-1IA"/>
                             <constraint firstItem="s4q-mF-f3M" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ukU-wn-Cja"/>
-                            <constraint firstItem="BhX-67-XvR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="ygc-cx-VyD"/>
+                            <constraint firstItem="BhX-67-XvR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="ygc-cx-VyD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log in to chat" id="N7m-si-Nfm"/>

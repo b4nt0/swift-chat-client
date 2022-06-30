@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
           guard let strongSelf = self else { return }
             if error != nil {
                 // Show error message
-                let alert = UIAlertController(title: "Could not log in", message: "We could not log you in, please check your password", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "Could not log in", message: "We could not log you in, please check your connection and password", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
                 strongSelf.present(alert, animated: true, completion: nil)
             }

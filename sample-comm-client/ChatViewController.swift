@@ -27,8 +27,6 @@ class ChatViewController: MessagesViewController {
     var sender_them: Sender?
     
     lazy var messages: [Message] = [
-        /*Message(sender: sender, messageId: "123", sentDate: Date(), kind: .text("Test message")),
-        Message(sender: sender2, messageId: "124", sentDate: Date(), kind: .text("Test response")),*/
     ]
 
     override func viewDidLoad() {
@@ -41,14 +39,15 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
+
+        guard let user_id = self.user_id, let user = self.user, let thread = self.thread
+        else { return }
         
-        guard (self.user_id != nil && self.user != nil && self.thread != nil) else { return }
+        self.sender_me = Sender(senderId: user_id, displayName: user.name)
+        self.sender_them = Sender(senderId: thread.user_id, displayName: thread.name)
         
-        self.sender_me = Sender(senderId: self.user_id!, displayName: self.user!.name)
-        self.sender_them = Sender(senderId: self.thread!.user_id, displayName: self.thread!.name)
-        
-        self.chat_id = self.thread!.getThreadObjectId(my_user_id: self.user_id!)
-        db.collection("chats").document(self.chat_id!).setData([ "name": self.chat_id! ], merge: true) {
+        self.chat_id = thread.getThreadObjectId(my_user_id: user_id)
+        db.collection("chats").document(self.chat_id!).setData([ "name": self.chat_id ?? "Chat" ], merge: true) {
             err in
             if err != nil {
                 // Could not create the chat
@@ -57,20 +56,6 @@ class ChatViewController: MessagesViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             else {
-                // We could create the chat, now get the messages
-                /*
-                self.db.collection("chats").document(self.chat_id!).collection("thread").getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("No chat messages were found yet, \(err)")
-                    } else {
-                        for document in querySnapshot!.documents {
-                            let t = Message(firebaseDocument: document, sender_me: self.sender_me!, sender_them: self.sender_them!)
-                            self.messages.append(t)
-                        }
-                        self.messagesCollectionView.reloadData()
-                    }
-                }*/
-                
                 self.db.collection("chats").document(self.chat_id!).collection("thread").order(by: "date")
                     .addSnapshotListener { querySnapshot, error in
                         guard let snapshot = querySnapshot else {
@@ -133,17 +118,11 @@ class ChatViewController: MessagesViewController {
     }
     
     func destroyMessage(_ messageId: String) {
-        //guard let index = self.messages.firstIndex(where: { messageId == $0.messageId }) else { return }
-        
         db.collection("chats").document(self.chat_id!).collection("thread").document(messageId).setData([ "text": "Self-destructed" ], merge: true) {err in
             if let err = err {
                 print("Could not self-destruct \(err)")
                 return
             }
-            /*
-            self.messages[index].kind = .text("Self-destructed")
-            self.messagesCollectionView.reloadSections([index])
-            */
         }
     }
     
@@ -181,7 +160,6 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     }
     
     func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        // let message = messageForItem(at: indexPath, in: messagesCollectionView)
         if let msg = message as? Message {
             if msg.read && self.isFromCurrentSender(message: message) {
                 return CGFloat(20);

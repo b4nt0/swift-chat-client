@@ -108,6 +108,16 @@ class ChatViewController: MessagesViewController {
                 self.markAsRead(message.messageId)
             })
         }
+        
+        if (message.sender.senderId == self.user_id) && (self.thread?.user_id == UserInfo.bot_user_id) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000), execute: {
+                switch (message.kind) {
+                    case .text(let text):
+                        self.botResponse(text)
+                    default: break
+                }
+            })
+        }
     }
     
     func modifyMessage(_ document: QueryDocumentSnapshot) {
@@ -133,6 +143,23 @@ class ChatViewController: MessagesViewController {
                 return
             }
         }
+    }
+    
+    func botResponse(_ text: String) {
+        var response: String
+        
+        if text.contains("secret") {
+            response = "secret: test 123"
+        }
+        else {
+            response = "Responding to " + text
+        }
+        
+        db.collection("chats").document(self.chat_id!).collection("thread").addDocument(data: [
+            "sender": UserInfo.bot_user_id,
+            "date": Timestamp.init(),
+            "text": response
+        ])
     }
     
     func sendMessage(text: String, completion: @escaping (Error?) -> Void) {

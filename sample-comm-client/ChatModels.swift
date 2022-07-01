@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 
 public struct UserInfo: Codable {
+    static let bot_user_id = "_chat_bot"
     var name: String
 }
 

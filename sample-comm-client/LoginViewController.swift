@@ -33,6 +33,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func aliceClick(_ sender: Any) {
+        self.userNameField.text = "alice-test@guardsquare.com"
+        self.passwordField.text = "123456"
+        self.loginClick()
+    }
+    
+    @IBAction func bobClick(_ sender: Any) {
+        self.userNameField.text = "bob-test@guardsquare.com"
+        self.passwordField.text = "123456"
+        self.loginClick()
+    }
+    
     @IBAction func loginClick() {
         Auth.auth().signIn(withEmail: self.userNameField!.text ?? "", password: self.passwordField!.text ?? "") { [weak self] authResult, error in
           guard let strongSelf = self else { return }
